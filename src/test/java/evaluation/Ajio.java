@@ -64,12 +64,13 @@ public class Ajio {
 		String onlyCode = codeEpic.replace("Use Code", "");
 		System.out.println(onlyCode);
 		driver.findElementByXPath("//span[text()='Enter pin-code to know estimated delivery date.']").click();
-		driver.findElementByXPath("//input[@name='pincode']").sendKeys("560043");
+		driver.findElementByXPath("//input[@name='pincode']").sendKeys("635001");
 		driver.findElementByXPath("//button[@type='submit' and text()='CONFIRM PINCODE']").click();
 		System.out.println(driver.findElementByXPath("//ul[@class='edd-message-success-details']").getText());
 		driver.findElementByXPath("//div[text()='Other information']").click();
 		System.out.println(driver.findElementByXPath("//span[text()='Customer Care Address']/following::span/following::span").getText());
 		driver.findElementByXPath("//span[text()='ADD TO BAG']").click();
+		Thread.sleep(8000);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='GO TO BAG']"))).click();
 		driver.findElementByXPath("//input[@id='couponCodeInput']").sendKeys("EPIC");
 		driver.findElementByXPath("//button[text()='Apply']").click();
@@ -81,6 +82,7 @@ public class Ajio {
 		if(finalValue.contains(price)) {
 			System.out.println("Discount Value Successful");
 			driver.findElementByXPath("//div[text()='Delete']").click();
+			driver.findElementByXPath("//div[text()='DELETE']").click();
 		}
 		
 		
